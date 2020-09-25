@@ -1,3 +1,4 @@
+let monthsEl = document.getElementById("months")
 let daysEl = document.getElementById("days")
 let hoursEl = document.getElementById("hours")
 let minsEl = document.getElementById("mins")
@@ -9,10 +10,12 @@ function countdown() {
 
   const diff = (newYearsDate - currentDate)/1000;
 
+  const months = Math.floor(diff/3600/24/(365/12))%12
   const days = Math.floor(diff/3600/24)
   const hours = Math.floor(diff/3600)%24
   const mins = Math.floor(diff/60)%60
   const seconds = Math.floor(diff)%60
+  monthsEl.innerHTML=months
   daysEl.innerHTML=days
   hoursEl.innerHTML=formatTime(hours)
   minsEl.innerHTML=formatTime(mins)
